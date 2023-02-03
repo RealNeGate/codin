@@ -5,7 +5,7 @@
 
 typedef struct Context Context;
 
-Bool path_mkdir(const char *pathname);
+Bool path_mkdir(const char *pathname, Context *context);
 
 Array(String) _path_list(String path, Context *context);
 

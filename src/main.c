@@ -91,7 +91,7 @@ static Bool transpile(String path, Context *context) {
 	if (!string_find_last_byte(path, '.', &dot)) {
 		return false;
 	}
-	
+
 	const String name = string_slice(path, slash + 1, dot);
 	StrBuf file;
 	strbuf_init(&file, context);
@@ -99,7 +99,7 @@ static Bool transpile(String path, Context *context) {
 	strbuf_put_rune(&file, '\0');
 
 	// Ensure a build directory exists to shove the generated C0.
-	path_mkdir(".build");
+	path_mkdir(".build", context);
 
 	const String filename = strbuf_result(&file);
 	FILE *fp = fopen(CAST(const char *, filename.contents), "wb");

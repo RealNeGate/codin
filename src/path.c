@@ -11,9 +11,10 @@
 
 #include <stdio.h> //
 #include "path.h"
+#include "support.h"
 #include "context.h"
 
-Bool path_mkdir(const char *pathname) {
+Bool path_mkdir(const char *pathname, Context *context) {
 #if defined(OS_WINDOWS)
 	Uint16 *pathname_utf16 = 0;
 	if (utf8_to_utf16(pathname, &pathname_utf16)) {
